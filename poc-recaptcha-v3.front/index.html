@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>Recaptcha V3</h1>
+    <button class="button-send">Validar</button>
+    <h1><span class="robot">Eu...</span></h1>
+</body>
+
+</html>
+
+<script src="https://www.google.com/recaptcha/api.js?render=6LcACdgUAAAAAIQavOXDGiql_csOCl-kn_gPA0EA"></script>
+<script>
+
+    let recaptchaToken;
+
+    grecaptcha.ready(function () {
+        grecaptcha
+            .execute(
+                "6LcACdgUAAAAAIQavOXDGiql_csOCl-kn_gPA0EA",
+                { action: 'homepage' }
+            )
+            .then(
+                function (response) {
+                    recaptchaToken = response;
+                    console.log(recaptchaToken);
+                }
+            );
+    });
+
+    document.querySelector('.button-send').onclick = function() { getMessages() };
+
+    function getMessages() {
+        let url = 'http://localhost:8080/robot?token=' + recaptchaToken
+        let httpRequest = new XMLHttpRequest()
+
+        httpRequest.onreadystatechange = function (data) {
+            if (httpRequest.readyState === 4) {
+                console.log(data.target.response);
+                document.querySelector('.robot').innerHTML = data.target.response;
+            }
+        }
+
+        httpRequest.open('GET', url)
+        httpRequest.send()
+    }
+
+</script>
