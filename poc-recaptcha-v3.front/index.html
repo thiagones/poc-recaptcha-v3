@@ -9,7 +9,7 @@
 
 </html>
 
-<script src="https://www.google.com/recaptcha/api.js?render=6LcACdgUAAAAAIQavOXDGiql_csOCl-kn_gPA0EA"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=##YOUR_PUBLIC_KEY##"></script>
 <script>
 
     let recaptchaToken;
@@ -17,7 +17,7 @@
     grecaptcha.ready(function () {
         grecaptcha
             .execute(
-                "6LcACdgUAAAAAIQavOXDGiql_csOCl-kn_gPA0EA",
+                "##YOUR_PUBLIC_KEY##",
                 { action: 'homepage' }
             )
             .then(
