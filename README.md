@@ -3,5 +3,5 @@ Para executar:
 
 A partir da raiz:
 
-* dotnet run poc-recaptcha-v3.webapi
+* dotnet run --project poc-recaptcha-v3.webapi/poc-recaptcha-v3.webapi.csproj
 * npx serve poc-recaptcha-v3.front
