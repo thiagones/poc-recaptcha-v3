@@ -24,7 +24,7 @@ namespace poc_recaptcha_v3.webapi.Controllers
         [HttpGet]
         public string Get(string token)
         {
-            string secret = "6LcACdgUAAAAANbLA2yv0rE4f2oaTrW5cE4okttE";
+            string secret = "##YOUR_SECRET_KEY##";
 
             bool validRequest = ValidateChallengeCaptcha(secret, token);
 
